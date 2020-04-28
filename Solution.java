@@ -27,16 +27,21 @@ public class Solution {
   /**
    * Finds the maximum subarray sum, modulo valueForModulo.
    *
-   * <p>1. Iterating through the sorted by sumFromStart_modulo in ascending order. 2. If the
-   * original input array index is less than the original input array index of the preceding
-   * element, then check for maximum sum, modulo valueForModulo, for the subarray between these two
-   * indexes.
+   * 1. Iterating through the array, sorted by sumFromStart_modulo in ascending order.
+   * 2. If the original input array index is less than the original input array index 
+   *    of the preceding element, then check for maximum sum, modulo valueForModulo, 
+   *    at the subarray between these two indexes: 
+   *    exclisive the smaller index, includise the larger index.
    *
-   * <p>Example: valueForModulo: 8. Array, sorted by sumFromStart_modulo in ascending order:[2, 4,
-   * 5, 6] Original input array index: 1 0 3 2 Candidates_maxSumModul: values(2,4) =>
-   * (valueForModulo - (4 - 2)) values(5,6) => (valueForModulo - (6 - 5))
+   * Example: 
+   * valueForModulo: 8.
+   * Array, sorted by sumFromStart_modulo in ascending order:[2, 4, 5, 6] 
+   * Original input array index:                              1  0  3  2 
+   * candidate_maxSumModul: 
+   * subaray(index=0(exclusive), index=1(inclusive)) ==> (valueForModulo - (4 - 2)) 
+   * subaray(index=2(exclusive), index=3(inclusive)) ==> (valueForModulo - (6 - 5)) 
    *
-   * @return A long integer, representing the max sum of subarray % modulo.
+   * @return A long integer, representing the maximum sum of a subarray, modulo valueForModulo.
    */
   private static long find_maxSum_modulo_Subarray(Element[] elements, long valueForModulo) {
 
