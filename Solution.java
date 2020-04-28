@@ -29,8 +29,7 @@ public class Solution {
    * 1. Iterating through the array, sorted by sumFromStart_modulo in ascending order.
    * 2. If the original input array index is less than the original input array index 
    *    of the preceding element, then check for maximum sum, modulo valueForModulo, 
-   *    at the subarray between these two indexes: 
-   *    exclusive the smaller index, inclusive the larger index.
+   *    at the subarray between these two indexes: exclusive the smaller index, inclusive the larger index.
    *
    * Example: 
    * valueForModulo: 8.
@@ -61,7 +60,7 @@ public class Solution {
 
   private static class Element implements Comparable<Element> {
 
-    // sum modulo of the subarray(0, inputIndex(inclusive)).
+    // sum, modulo valueForModulo, of the subarray(0(inclusive), inputIndex(inclusive)).
     long sumFromStart_modulo;
     int inputIndex;
     long inputValue;
