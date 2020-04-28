@@ -16,8 +16,7 @@ public class Solution {
 
       for (int j = 1; j < lengthArray; j++) {
         elements[j] = new Element(j, scanner.nextLong());
-        elements[j].sumFromStart_modulo =
-            (elements[j - 1].sumFromStart_modulo + elements[j].inputValue) % valueForModulo;
+        elements[j].sumFromStart_modulo = (elements[j - 1].sumFromStart_modulo + elements[j].inputValue) % valueForModulo;
       }
       System.out.println(find_maxSum_modulo_Subarray(elements, valueForModulo));
     }
@@ -52,10 +51,7 @@ public class Solution {
     for (int i = elements.length - 1; i > 0; i--) {
 
       if (elements[i].inputIndex < elements[i - 1].inputIndex) {
-        long candidate_maxSumModulo =
-            valueForModulo
-                - (elements[i].sumFromStart_modulo - elements[i - 1].sumFromStart_modulo);
-
+        long candidate_maxSumModulo = valueForModulo - (elements[i].sumFromStart_modulo - elements[i - 1].sumFromStart_modulo);
         candidate_maxSumModulo = candidate_maxSumModulo % valueForModulo;
         maxSum_modulo = Math.max(maxSum_modulo, candidate_maxSumModulo);
       }
@@ -78,8 +74,7 @@ public class Solution {
     // Sort by sumFromStart_modulo in ascending order.
     @Override
     public int compareTo(Element other) {
-      return Long.valueOf(this.sumFromStart_modulo)
-          .compareTo(Long.valueOf(other.sumFromStart_modulo));
+      return Long.valueOf(this.sumFromStart_modulo).compareTo(Long.valueOf(other.sumFromStart_modulo));
     }
   }
 }
