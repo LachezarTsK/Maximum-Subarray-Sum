@@ -31,13 +31,13 @@ public class Solution {
    * 2. If the original input array index is less than the original input array index 
    *    of the preceding element, then check for maximum sum, modulo valueForModulo, 
    *    at the subarray between these two indexes: 
-   *    exclisive the smaller index, includise the larger index.
+   *    exclusive the smaller index, inclusive the larger index.
    *
    * Example: 
    * valueForModulo: 8.
    * Array, sorted by sumFromStart_modulo in ascending order:[2, 4, 5, 6] 
    * Original input array index:                              1  0  3  2 
-   * candidate_maxSumModul: 
+   * candidate_maxSumModulo: 
    * subaray(index=0(exclusive), index=1(inclusive)) ==> (valueForModulo - (4 - 2)) 
    * subaray(index=2(exclusive), index=3(inclusive)) ==> (valueForModulo - (6 - 5)) 
    *
@@ -45,7 +45,8 @@ public class Solution {
    */
   private static long find_maxSum_modulo_Subarray(Element[] elements, long valueForModulo) {
 
-    Arrays.sort(elements);
+    // Sort by sumFromStart_modulo in ascending order.
+     Arrays.sort(elements);
     long maxSum_modulo = elements[elements.length - 1].sumFromStart_modulo;
 
     for (int i = elements.length - 1; i > 0; i--) {
@@ -64,7 +65,7 @@ public class Solution {
 
   private static class Element implements Comparable<Element> {
 
-    // sum modulo of the subarray(0, inputIndex(including)).
+    // sum modulo of the subarray(0, inputIndex(inclusive)).
     long sumFromStart_modulo;
     int inputIndex;
     long inputValue;
